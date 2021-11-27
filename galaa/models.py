@@ -14,6 +14,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+        
+
 class photos(models.Model):
     name = models.CharField(max_length=30)
     image = CloudinaryField('image')
@@ -39,8 +41,9 @@ class photos(models.Model):
         return photos
 
     @classmethod
-    def search_by_name(cls,search_term):
-        photos = cls.objects.filter(name__icontains=search_term)
+    def search_by_category(cls,search_term):
+        photos = cls.objects.filter(category__name__icontains=search_term)
         return photos
+
 
 
