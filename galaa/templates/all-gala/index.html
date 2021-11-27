@@ -2,15 +2,16 @@
 
 {% block content %}
 {{block.super}}
-<div class = "container"></div>
-  <h1>Welcome to PHOTO GALA</h1>
-<div class  = "row ">
- {% for photo in photo %}
-   <h2>{{photo.name}}</h2>
-    <img src="{{photo.image.url}}" alt="liz">
+<div class = "container">
+  <h1 class="text-center"> Welcome to PHOTO GALA </h1>
+   <div class  = "row ">
+{% for photo in photo %}
+     <h2>{{photo.name}}</h2>
+      <img src="{{photo.image.url}}" alt="liz">
+       <a href="{% url 'photo' photo_item.id %} "><h2 class="text-center"> {{ photo_item.name }} </h2></a>
  {% endfor %}
 {% endblock %}
 </div>
-
+</div>
 
 
