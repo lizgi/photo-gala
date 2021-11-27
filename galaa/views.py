@@ -11,3 +11,15 @@ def index(request):
     photo= photos.objects.all()
     return render(request, 'all-gala/index.html',{'photo':photo})
 
+def search_results(request):
+
+    if 'photo' in request.GET and request.GET["photo"]:
+        search_term = request.GET.get("photo")
+        searched_photo = photos.search_by_name(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-gala/search.html',{"message":message,"photo": searched_photo})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-gala/search.html',{"message":message})
