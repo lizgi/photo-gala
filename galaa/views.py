@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http  import HttpResponse
+from django.http  import HttpResponse,Http404
 from .models import photos
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def welcome(request):
@@ -23,3 +24,11 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all-gala/search.html',{"message":message})
+
+def photo(request,photo_id):
+    try:
+        article = photo.objects.get(id = photo_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request,"all-gala/photo.html", {"article":article})
+
