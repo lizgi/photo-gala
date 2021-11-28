@@ -3,16 +3,57 @@
 {% block content %}
 {{block.super}}
 <div class = "container">
-  <h1 class="text-center"> Welcome to PHOTO GALA </h1>
+   <h1 class="text-center"> Welcome to PHOTO GALA </h1>
    <div class  = "row ">
-{% for photo in photo %}
-     <h2>{{photo.name}}</h2>
-      <img src="{{photo.image.url}}" alt="liz">
-      <h3>{{photo.category}}</h3>
-      <h4>{{photo.location}}</h4> 
- {% endfor %}
-{% endblock %}
-</div>
-</div>
 
+     {% for photo in photo %}
+     <div class = "col-md-4" data-toggle ="modal" data-target="#showPhotoModal{{photo.id}}">
+          <img src="{{photo.image.url}}" alt="" class="img-responsive">
+      </div>
 
+     
+   
+     <div class="modal fade" id="showPhotoModal{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+          <div class="modal-header">
+               <h5 class="modal-title" id="modalPhotoName">{{photo.name}}</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+          </div>
+          <div class="modal-body">
+               <img src="{{photo.image.url}}" class = "img-responsive"alt="{{photo.name}}">
+               <p class="text-centre">{{photo.description}}</p>
+               <div class="col-md-4">
+               <p>{{photo.category}}</p>
+               </div>
+               <div class="col-md-4">
+               <p>{{photo.location}}</p>
+               </div>
+               <div class="col-md-4">
+               <p>{{photo.post_date}}</p>
+               </div>
+          </div>
+          <div class="modal-footer">
+               <p>Double click to copy this link!</p>
+               <input class="form-control" type="text" value="{{photo.image.url}}" id="{{photo.id}}.url">
+          </div>
+          </div>
+     </div>
+     </div>
+     {% endfor %}
+     </div>
+
+  
+   <div class="row">
+     <div class="col-md-6 locations">
+         <h1>Locations</h1>
+         {% for place in location%}
+             <!-- loop through all the images -->
+             <a class="loc" href="/?location={{place.id}}">
+                 {{place.value}}
+             </a>
+         {% endfor %}
+     </div>
+  {% endblock %}

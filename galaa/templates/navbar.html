@@ -7,7 +7,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-success">
-        <a class="navbar-brand" href="#">GALA</a>
+        <a class="navbar-brand" href="#">HOME</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,18 +15,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a style ="color:black;" href="/admin" class="nav-item" active-color="black">&nbsp;Admin</a>
             </li>
-            
+           
+
+
+
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Category
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Nature</a>
-                <a class="dropdown-item" href="#">People</a>
-                <a class="dropdown-item" href="#">Food</a>
-              </div>
+              {% for location in locations%}
+                    <!-- loop through all the images -->
+                    <a class="loc" href="/?location={{location.id}}">
+                        {{location.name}}
+                    </a>
+                {% endfor %}
+
             </li>
           
             <div class="col-sm-4 col-md-4 navbar-right">

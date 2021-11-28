@@ -2,7 +2,9 @@ h1{
     align-self: center;
     color:blueviolet;
 }
- row{
-     height: 100px;;
-     width: 50px;
- }
+
+.img-responsive{
+    height:auto;
+    width:100%;
+    padding: 15px;
+}
