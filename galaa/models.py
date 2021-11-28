@@ -24,6 +24,10 @@ class Location(models.Model):
     def __str__(self):
         return self.value
 
+    def delete_location(self):
+        self.delete()
+   
+
 
 class photos(models.Model):
     name = models.CharField(max_length=30)
@@ -42,7 +46,7 @@ class photos(models.Model):
         self.category = category
         self.description = description
         self.location = location
-    
+
         self.save()
 
     # get all images
