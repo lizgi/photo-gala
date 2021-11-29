@@ -10,15 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
 import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+import os
 import django_heroku
 import dj_database_url
-from decouple import config, Csv
+from decouple import config,Csv
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.environ.get('DEBUG', True)
+
 
 # development
 DATABASES = {
@@ -32,6 +35,20 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+
+cloudinary.config( 
+  cloud_name = "dmskni6qq", 
+  api_key = "769186719129962", 
+  api_secret = "SPAp9Ydp6Yj4sH8zXlWZWXmftpM" 
+)
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': "dmskni6qq",
+    'API_KEY': "769186719129962",
+    'API_SECRET': "SPAp9Ydp6Yj4sH8zXlWZWXmftpM"
+}
+
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -40,17 +57,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,7 +75,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'galaa.apps.GalaaConfig',
-    'bootstrap4',
+    'cloudinary_storage',
     'cloudinary',
     
 
@@ -81,7 +98,7 @@ ROOT_URLCONF = 'picgala.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,"templates")],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,9 +120,9 @@ WSGI_APPLICATION = 'galaa.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config("DB_NAME"),
-        'USER': config("DB_USER"),
-    'PASSWORD':config("DB_PASSWORD"),
+        'NAME': '',
+        'USER': '',
+    'PASSWORD':'',
     }
 }
 
@@ -145,7 +162,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
@@ -157,18 +173,16 @@ STATICFILES_DIRS = [
 
 
 
-cloudinary.config( 
-  cloud_name = config("Cl_NAME"), 
-  api_key = config("A_KEY"), 
-  api_secret = config("A_SEC") 
-)
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
   
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # configuring the location for media
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
