@@ -49,5 +49,54 @@ class CategoryTestCase(TestCase):
         self.assertEqual(str(category), "Test Category")
 
 
+class photosTestCase(TestCase):
 
+    def setUp(self):
+        """
+        Create a image for testing
+        """
+        photos.objects.create(
+            name="Test photos",
+            image_description="Test Description",
+            location=Location.objects.create(value="Test Location"),
+            category=Category.objects.create(name="Test Category"),
+            image="http://test.com/test.jpg",
+            post_date="Test image"
+        )
 
+    def test_image_name(self):
+        """
+        Test that the image name is correct
+        """
+        image = photos.objects.get(name="Test photos")
+        self.assertEqual(image.name, "Test photos")
+
+    def test_image_description(self):
+        """
+        Test that the image description is correct
+        """
+        image = photos.objects.get(name="Test photos")
+        self.assertEqual(image.image_description, "Test Description")
+
+    def test_image_location(self):
+        """
+        Test that the image location is correct
+        """
+        image = photos.objects.get(name="Test photos")
+        self.assertEqual(image.location.value, "Test Location")
+
+    def test_image_category(self):
+        """
+        Test that the image category is correct
+        """
+        image = photos.objects.get(name="Test photos")
+        self.assertEqual(image.category.name, "Test Category")
+
+    
+
+    def test_image_str(self):
+        """
+        Test that the image string representation is correct
+        """
+        image = photos.objects.get(name="Test photos")
+        self    
