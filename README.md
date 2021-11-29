@@ -14,11 +14,11 @@ This is a photo gallery web application that showcases incredible pictures. User
   
 ## Screenshots 
 
-###### Home page
+###### ADMIN page
  
- ###### Search results
+ ###### HOME results
  
- ###### Image Details 
+ ###### SEARCH Details 
  
  
 ## User Story  
@@ -33,12 +33,11 @@ This is a photo gallery web application that showcases incredible pictures. User
   
 ## Setup and Installation  
   
-##### Clone the repository:  
+## Clone the repository:  
  
+## Navigate into the folder and install requirements  
 
-##### Navigate into the folder and install requirements  
-
-##### Install and activate Virtual  
+## Install and activate Virtual  
   
 ##### Install Dependencies  
  ```bash 
@@ -76,11 +75,8 @@ Open the application on your browser `127.0.0.1:8000`.
   
   
 ## Known Bugs  
-* There are no known bugs  
-  
-## Support and Contact Information 
+* There are no known bug
 
-To make a contribution to the code used or for any queries feel free to contact me via my email addresses ezekiel.nyambane@student.moringaschool.com or kibiezekiel@gmail.com
 
 ## License
 
