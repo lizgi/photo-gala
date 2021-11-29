@@ -2,10 +2,15 @@
 
 {% block content %}
 {{block.super}}
-<div class = "container">
-   <h1 class="text-center"> Welcome to PHOTO GALA </h1>
-   <div class  = "row ">
 
+    
+<br>
+<br>
+     <div class="container mt-5">
+          <h3 class="text-center"><b><i>~Welcome to Animal Kingdom~</i></b></h3><br>
+          <div class="row p-4">
+               <div class="row">
+                    
      {% for photo in photo %}
      <div class = "col-md-4" data-toggle ="modal" data-target="#showPhotoModal{{photo.id}}">
           <img src="{{photo.image.url}}" alt="" class="img-responsive">
@@ -44,16 +49,29 @@
      </div>
      {% endfor %}
      </div>
-
-  
    <div class="row">
      <div class="col-md-6 locations">
-         <h1>Locations</h1>
-         {% for place in location%}
-             <!-- loop through all the images -->
-             <a class="loc" href="/?location={{place.id}}">
-                 {{place.value}}
-             </a>
-         {% endfor %}
+          <h1>Locations</h1>
+          {% for place in location%}
+          <!-- loop through all the images -->
+          <a class="loc" href="/?location={{place.id}}">
+               {{place.value}}
+          </a>
+          {% endfor %}
      </div>
+
+     
+          <div class="col-md-6">
+              <h2>Categories</h2>
+                  <a class="chip" href="/">
+               
+                  </a>
+                  {% for category in categories%}
+              <!-- loop through all the images -->
+                  <a class="chip" href="/?category={{category.id}}">
+                      <i>{{category.name}}</i>
+                  </a>
+              {% endfor %}
+          </div>
+   </div>
   {% endblock %}

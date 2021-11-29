@@ -15,10 +15,12 @@ def index(request):
     if 'location' in request.GET and request.GET["location"]:
         location_id = request.GET.get("location")
         photo = photos.objects.filter(location = location_id)
+    elif 'category' in request.GET and request.GET["category"]:
+        category_id = request.GET.get("category")
+        photo = photos.objects.filter(category = category_id)
     else:
      photo= photos.objects.all()
     return render(request, 'all-gala/index.html',{'photo':photo,'categories':categories, 'location':location})
-
 
 
 
@@ -35,4 +37,5 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all-gala/search.html',{"message":message})
 
-#
+
+

@@ -1,6 +1,6 @@
 h1{
     align-self: center;
-    color:blueviolet;
+    color:coral;
 }
 
 .img-responsive{
@@ -9,6 +9,14 @@ h1{
     padding: 15px;
 }
 
+
 body{
-    background-image: url(https://images.pexels.com/photos/1327405/pexels-photo-1327405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-color: burlywood;
+}
+    
+h2{
+    color: coral;
+}
+h3{
+    color: coral;
 }
