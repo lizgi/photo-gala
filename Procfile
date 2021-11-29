@@ -1,1 +1,1 @@
-web: gunicorn galaa.wsgi
+web: gunicorn picgala.wsgi
