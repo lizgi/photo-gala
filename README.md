@@ -1,30 +1,30 @@
-# photos
+# PHOTO GALA
 
-### 26th Nov. 2021
+### 27th Nov. 2021
 
 ## Author  
   
-[Elizabeth Gikonyo]
+Elizabeth Gikonyo
   
 # Description  
-This is a photo gallery web application that showcases incredible pictures. Users can view photos uploaded by the website admin. Users can also view photos based on the location, by clicking on the listed locations in the navbar dropdown as well as by category. They can also copy the link to a photo to paste.
+This is a picture gala web application that potrays the best images of different calibre. Users can view photos uploaded by the website admin. Users can also view photos based on the location, by clicking on the listed locations as well as by category. They can also copy the link to a photo to paste.
   
 ##  Live Link  
- 
+ https://galagara.herokuapp.com/
   
 ## Screenshots 
 
 ###### ADMIN page
  
- ###### HOME results
+ ###### HOME page
  
- ###### SEARCH Details 
+ ###### SEARCH bar
  
  
 ## User Story  
   
-* View different photos from the galllery 
-* Click a single image to expand it and view the details of that photo  
+* View different photos from the galllery .
+* Click a single image to expand it and view the details of that photo.  
 * Search for images by different categories.   
 * Copy a link to the photo.  
 * Filter photos based on the location.  
@@ -32,17 +32,21 @@ This is a photo gallery web application that showcases incredible pictures. User
 
   
 ## Setup and Installation  
-  
+
 ## Clone the repository:  
  
-## Navigate into the folder and install requirements  
+https://github.com/lizgi/photo-gala  
 
-## Install and activate Virtual  
-  
+## Navigate into the folder and install requirements  
+ cd Phpto-gala pip install -r requirements.txt 
+## Install and activate Virtual 
+
+python3 -m venv virtual - source virtual/bin/activate  
+
 ##### Install Dependencies  
- ```bash 
- pip install -r requirements.txt 
-```  
+ 
+ pip install -r requirements.txt
+ 
  ##### Setup Database  
   SetUp your database User,Password, Host then make migrate  
  ```bash 
@@ -69,9 +73,9 @@ Open the application on your browser `127.0.0.1:8000`.
   
 ## Technology used  
   
-* [Python3.8](https://www.python.org/)  
-* [Django==3.2.7](https://docs.djangoproject.com/en/2.2/)  
-* [Heroku](https://heroku.com)  
+* [Python3.8]
+* [Django==3.2.7] 
+* [Heroku]
   
   
 ## Known Bugs  
